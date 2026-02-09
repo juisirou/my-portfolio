@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* 固定ヘッダー分だけ「最初のセクション」を下げる（#header がページ最上部に来るように） */
+.s1 {
+  padding-top: 64px;
+}
+
+/* アンカー移動時、固定ヘッダーに隠れないようにする */
+html {
+  scroll-padding-top: 64px;
+}
+
+
+/* 下線アニメーション（hoverで線が伸びる） */
+.gnav a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.gnav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  transform: scaleX(0); /* 横幅0 */
+  transform-origin: left; /* 左から */
+  transition: transform 0.3s ease;
+}
+
+.gnav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* レスポンシブ（タッチ端末）でも反応させる */
+.gnav a:focus::after,
+.gnav a:focus-visible::after,
+.gnav a:active::after {
+  transform: scaleX(1);
+}
+.logo-img {
+  content: url(../images/ag5-logo.svg);
+}
+
+.desktop {
+  /* max-width と margin は position: fixed の場合不要 */
+
+  padding: 0 10px;
+  border-bottom: 1px solid #000;
+}
+
+.site-header .desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #D8D3D1; /* 初期背景色（JavaScriptで動的に変更される） */
+  height: 64px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 1s ease-in-out; /* 背景色の変化を滑らかに */
+}
+
+.logo {
+  margin: 0;
+}
+
+.logo a {
+  display: inline-block;
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+.gnav {
+  margin-left: auto;
+}
+
+.gnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.gnav a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: #000;
+  border: 0px solid #8a8a8a;
+  padding: 36px 24px;
+  text-align: center;
+
+}
+
+.footer-copy {
+  margin: 0;
+  color: #D8D3D1;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Mobile (<=767px) ===== */
+@media (max-width: 767px) {
+  .s1 {
+    padding-top: 56px;
+  }
+
+  html {
+    scroll-padding-top: 56px;
+  }
+
+  .logo-img {
+    content: url("../images/AI×WG5-logo-sp.svg");
+  }
+
+  /* 共通枠 */
+  .desktop {
+    padding: 10px;
+  }
+
+  /* Header（普通のスマホ版） */
+  .site-header .desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #D8D3D1; /* 初期背景色（JavaScriptで動的に変更される） */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    min-height: 56px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 1s ease-in-out; /* 背景色の変化を滑らかに */
+  }
+
+
+  .logo img {
+    height: 40px;
+  }
+
+  .gnav ul {
+    gap: 3px;
+  }
+
+  .gnav a {
+    font-size: 12px;
+    padding: 6px 4px;
+  }
+
+  /* Footer（スマホ：padding 縦36 横24） */
+  .site-footer {
+    padding: 36px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #f2f2f2;
+  }
+}

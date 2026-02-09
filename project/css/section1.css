@@ -1,0 +1,766 @@
+/* =========================================
+   Section 1: Minimalist "Above Red Band"
+   Scope: .s1
+   ========================================= */
+
+/* --- Scoped Base Styles --- */
+.s1 {
+    /* Variables */
+    --s1-bg: #D8D3D1;
+    --s1-line: #111;
+    --s1-text: #111;
+    --s1-max-width: 100%;
+    /* Full width as per request, content might be constrained differently if needed */
+
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    /* background-color: var(--s1-bg); */ /* Removed to allow body background color to show */
+    color: var(--s1-text);
+    /* Prevent 0x0 issues */
+    width: 100%;
+    overflow: hidden;
+    /* Clear floats/margins if any */
+    padding-bottom: 2rem;
+    /* Initial spacing before next section */
+}
+
+/* Mandatory Image Constraints */
+.s1 img {
+    display: block;
+    max-width: 100%;
+/*     height: auto; */
+    object-fit: cover;
+}
+
+.s1 a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Link acting as image wrapper */
+.s1-img-link {
+    display: block;
+    width: 100%;
+}
+
+/* Typography Defaults */
+.s1 h1,
+.s1 h2,
+.s1 h3
+{
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+    /* Anton is bold by nature */
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+/* =========================================
+   (1) Header差し替え場所！！！！！！！
+   ========================================= */
+.s1-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--s1-line);
+}
+
+/* .s1-header-left { Logo area } - removed empty rule */
+
+.s1-header-logo {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+}
+
+.s1-header-right {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+    /* "PORTFOLIO", "CREDIT" likely english display font */
+}
+
+.s1-header-link {
+    position: relative;
+}
+
+/* =========================================
+   (2) Hero
+   ========================================= */
+.s1-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    text-align: center;
+}
+
+.s1-hero-img-wrap {
+    width: 1000px;
+    /* ←最終1000px */
+    margin: 0 auto 10px;
+    /* ←中央寄せ */
+}
+
+.s1-hero-img {
+    aspect-ratio: auto;
+    width: 100%;
+    /* Fallback */
+}
+
+
+  .s1-hero-title {
+    font-size: clamp(2.2rem, 8.924vw, 150px);
+    /* 1681pxの時に150pxになる */
+
+    white-space: nowrap;     /* 折り返さない */
+    width: 100%;
+    text-align: center;
+
+    padding: 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+
+.s1-hero-line {
+    width: 100px;
+    width: 0;
+}
+
+/* =========================================
+   (3) Story
+   ========================================= */
+.s1-story-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 60px 0;
+    border-top: 1px solid var(--s1-line);
+    margin: 40px auto 0 auto;
+    /* The line below the title */
+}
+
+
+.s1-our-story {
+    font-size: 16px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.s1 .s1-story {
+    display: inline-block;
+    margin: 0;
+    background: #000;
+    color: #fff;
+    padding: 0.8rem 4rem;
+    border-radius: 999px;
+    /* Pill shape */
+    font-weight: bold;
+    line-height: 1.7;
+    font-size: 16px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+/* =========================================
+   (4) Creation & Portfolio (2 Cols)　
+   ========================================= */
+
+   /*ここから変更(差し替え)可*/
+.s1-creation-section {
+    position: relative;
+    height: 100%;
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+   /*  background: #D8D3D1; */
+    padding: 0;
+}
+
+.s1-creation-grid {
+    display: flex;
+    position: relative;
+    padding: 0 20px;
+}
+
+.s1-creation-title,
+.s1-creation-subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.s1-creation-main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: normal;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 1.2;
+    gap: 2rem;
+}
+
+.s1-subtitle-area {
+    margin-top: 3rem;
+}
+
+.s1-line-left-mid {
+    height: 1px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.s1-creation-sub-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: normal;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.2;
+    gap: 2rem;
+}
+
+.s1-work-label {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 0.8rem 3rem;
+    border-radius: 999px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.s1-col-right {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.s1-work-img-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+
+.s1-line-right-mid {
+    height: 1px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.s1-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.s1-chip-logo {
+    width: 100%;
+    aspect-ratio: 2.5/1;
+    object-fit: contain;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 2px;
+}
+    /*ここまで！！！！！*/
+
+
+
+
+
+/* --- Isolated Line Elements --- */
+.s1-line-top,
+.s1-line-bottom,
+.s1-line-left-mid,
+.s1-line-right-mid,
+.s1-line-vert {
+    background-color: #111;
+    /* Common line color */
+}
+
+/* Top Horizontal Line (Disconnected from edges) */
+.s1-line-top {
+    height: 1px;
+    width: calc(100% - 40px);
+    /* 20px gap on each side */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    /* Space between line and content */
+}
+
+/* Bottom Horizontal Line (Disconnected from edges) */
+.s1-line-bottom {
+    height: 1px;
+    width: calc(100% - 40px);
+    margin: 20px auto 50px auto;
+}
+
+
+/* Vertical Line (Disconnected top/bottom) */
+.s1-line-vert {
+    width: 1px;
+    margin: 0 2rem;
+    /* Spacing around the line */
+    background: #111;
+    align-self: stretch;
+    /* Fill height */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* --- Left Column (35%) --- */
+.s1-col-left {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+    /* Space inside columns */
+}
+
+
+
+/* =========================================
+   (5) Card List (3 Cols) - Disconnected Lines
+   ========================================= */
+.s1-cards-section {
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    /* background: #D8D3D1; */ /* Removed to allow body background color to show */
+    padding: 60px 0;
+    /* No borders on container */
+}
+
+/* --- Top/Bottom Decorative Lines --- */
+.s1-cards-line-top,
+.s1-cards-line-bottom {
+    height: 1px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    background-color: #111;
+}
+
+.s1-cards-line-top {
+    margin-bottom: 20px;
+}
+
+.s1-cards-line-bottom {
+    margin-top: 20px;
+}
+
+/* --- Content Grid (Flex) --- */
+.s1-cards-content {
+    padding: 0 20px;
+    display: flex;
+    align-items: stretch;
+
+}
+
+/* --- Vertical Lines Between Columns --- */
+.s1-cards-vert-line {
+    flex: 0 0 1px;
+    /* 1px固定（潰れ防止） */
+    width: 1px;
+/*     background: #111; */
+    align-self: stretch;
+    margin: 3.6rem 0 0;/*ずれたらここの１個目の数字を変える*/
+    /* Disconnect from top/bottom lines */
+}
+
+.s1-cards-vert-line--short {
+    margin: 3.6rem 0 42.8rem;
+    /* ←一番右端の縦の線の長さ（１個目が上、３個目が下の長さ） */
+}
+
+.s1-cards-section {
+    --cards-line-top: 110px;
+    /* ← .s1-cards-col-line の位置に合わせる */
+    --cards-line-bottom: 110px;
+}
+
+
+
+/* --- Column --- */
+.s1-cards-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Column Title */
+.s1-cards-col-title {
+    text-align: right;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.7;
+    margin: 0;
+    padding: 1rem 20px;
+}
+
+/* Line Under Column Title (Disconnected) */
+.s1-cards-col-line {
+    height: 1px;
+    width: calc(100% - 20px);
+    margin: 0 auto 1.5rem auto;
+    background-color: #111;
+}
+.s1-cards-list-left{
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #111;
+    border-right: 1px solid #111;
+    padding-right: 15px;
+    gap: 2rem;
+    padding-left: 1rem;
+}
+/* --- Cards List --- */
+.s1-cards-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 15px;
+    gap: 2rem;
+    border-right: 1px solid #111;
+}
+
+/* --- Individual Card --- */
+.s1-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* No borders, no background */
+}
+
+/* Card Logo */
+/* ロゴ枠（高さ60px固定、横幅はロゴに合わせる） */
+.s1-card-logo-wrap {
+    width: auto;
+    min-width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+    /* 横長ロゴもすべて見えるように */
+    margin: 0 auto 0.75rem;
+}
+
+/* ロゴ本体：高さ60px固定、横幅は画像比率に任せる */
+.s1-card-logo {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    /* すべてのロゴ（正方形・横長）で同じルールを適用 */
+}
+
+
+
+
+/* Card Title */
+.s1-card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.7;
+    text-align: center;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    margin: 0 0 1rem 0;
+}
+
+/* Card Image with Hover Zoom */
+.s1-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    background: #e5e2e0;
+    overflow: hidden;
+}
+
+.s1-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+    will-change: transform;
+
+}
+
+
+
+
+/* Hover: 画像を少しだけ拡大 */
+.s1-card-link:hover .s1-card-img,
+.s1-card-fade-up:hover .s1-card-img {
+    transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s1-card-img {
+        transition: none;
+    }
+}
+.s1-card-fade-up {
+    border-bottom: 1px solid #111;
+}
+
+/* Decorative Line Under Card */
+.s1-card-line {
+    height: 1px;
+    width: 320px;
+    margin: 1.5rem auto 0 auto;
+/*     background-color: #111; */
+}
+
+/* =========================================
+   Responsive: 1000px以下 (Hero画像のレスポンシブ対応)
+   ========================================= */
+@media (max-width: 1000px) {
+    .s1-hero-img-wrap {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .s1-hero-title {
+        white-space: normal;
+    }
+}
+
+/* =========================================
+   Responsive 途中崩れ防止。あってもなくてもいい。
+   ========================================= */
+@media (max-width: 768px) {
+    .br{
+        display:block;
+   }
+    .s1-creation-grid {
+        flex-direction: column;
+    }
+
+    .s1-col-left,
+    .s1-col-right {
+        width: 100%;
+        padding: 2rem 1.5rem;
+    }
+
+    .s1-line-vert {
+        width: 100%;
+        height: 1px;
+        margin: 2rem 0;
+    }
+
+    .s1-cards-content {
+        flex-direction: column;
+    }
+
+    .s1-cards-vert-line {
+        width: calc(100% - 40px);
+        height: 1px;
+        margin: 2rem auto;
+    }
+
+    .s1-cards-col {
+        padding: 0 0 0 1rem;
+    }
+    .s1-cards-list-left{
+        border-right: none;
+        border-left: none;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/* =========================================
+   Responsive: 376px〜785px (Hero only)
+   ========================================= */
+
+/* =========================================
+   Responsive: 375px (Mobile - Final)
+   ========================================= */
+@media (max-width: 785px) {
+
+    /* --- Story Area --- */
+    .s1-story-area {
+        width: 317px;
+        margin: 20px auto 0 auto;
+        padding: 30px 0;
+        border-top: none;
+        position: relative;
+    }
+
+  .s1-story-area::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: calc(100% - 40px);   /* 左右20px空ける = s1-line-topと同じ */
+    background: var(--s1-line);
+    margin: 0 auto 20px;        /* 線の下の余白（好きに調整） */
+  }
+
+    .s1-our-story {
+        font-size: 14px;
+    }
+
+    .s1 .s1-story {
+        padding: 8px 48px;
+        font-size: 16px;
+    }
+
+    /* --- Creation Section --- */
+    .s1-creation-section {
+        width: 317px;
+        margin: 0 auto;
+    }
+
+    .s1-creation-grid {
+        width: 317px;
+        padding: 0;
+    }
+
+    /* --- Cards Section --- */
+
+
+    .s1-cards-col .s1-cards-list>*:last-child .s1-card-line {
+        display: none !important;
+    }
+
+
+
+    .s1-cards-section {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+        border: none;
+
+    }
+
+    .s1-cards-content {
+        flex-direction: column;
+        padding: 0;
+        border: none;
+    }
+
+    /* Hide vertical lines between columns */
+    .s1-cards-vert-line {
+        display: none;
+    }
+
+    /* Hide line before cards section */
+    .s1-line-bottom {
+        display: none;
+    }
+
+    .s1-cards-col {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+        padding-top: 0px;
+    }
+
+    .s1-cards-list {
+        gap: 30px;
+        border-right: none;
+        border-left: none;
+    }
+
+    /* Card adjustments */
+    .s1-card-fade-up {
+        margin-bottom: 0;
+        
+    }
+
+    .s1-cards-col+.s1-cards-col {
+        margin-top: 30px;
+    }
+
+    .s1-cards-col-title {
+        text-align: right;
+        /* カンプに合わせて 8〜16px で微調整可 */
+        padding-bottom: 10px;
+        padding-top: 0;
+    }
+
+    .s1-cards-col-line {
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .s1-card-line {
+        width: 320px;
+    }
+
+    /* Card images - maintain aspect ratio */
+    .s1-card-img-wrap {
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .s1-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    /* Card logo responsive adjustments */
+    .s1-card-logo-wrap {
+        width: auto;
+        min-width: 60px;
+        height: 60px;
+        overflow: visible;
+        /* 高さ60px固定、横幅はロゴに合わせる（モバイルも共通） */
+    }
+
+    /* Story text: replace with 4-line version via pseudo-element */
+    .s1-our-story {
+        font-size: 0;
+        color: transparent;
+    }
+
+    .s1-our-story::before {
+        content: "AI×WEBグラフィックデザイナー\A養成科5期、ポートフォリオの記録。\A成長に費やした時間と、\A今の自分たちの等身大をまとめました。";
+        white-space: pre-wrap;
+        font-size: 14px;
+        color: #111;
+        display: block;
+        text-align: center;
+        line-height: 1.7;
+        font-weight: bold;
+    }
+
+    /* Card column title margin */
+    .s1-cards-col-title {
+        margin-top: 30px;
+    }
+}
+
+/* =========================================
+   Responsive: 375px以下
+   785pxレスポンシブの上書き専用
+   ========================================= */

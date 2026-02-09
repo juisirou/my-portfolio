@@ -1,0 +1,1055 @@
+/* ========================================
+   1. Swiper Styles (from Untitled)
+   ======================================== */
+/* スライドの動き等速 */
+.swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+/* 画像のサイズ調整 */
+.swiper-slide img {
+    height: auto;
+    width: 100%;
+}
+
+/* ========================================
+   2. Base Styles (from base.css)
+   ======================================== */
+/* Reset and Base Styles */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    /* background: #D8D3D1; */
+    /* Removed to allow JavaScript-controlled background color */
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    transition: background-color 1s ease-in-out;
+}
+
+body.bg-changed {
+    background: #4a4a4a;
+}
+
+/* Carousel Container */
+.carousel-main,
+.carousel-sub {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    /*padding: 1.5rem 0; */
+}
+
+/* Group (animated container) */
+.group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll-left 30s linear infinite;
+}
+
+.carousel-sub .group {
+    animation: scroll-right 30s linear infinite;
+}
+
+/* Card Styles */
+.card {
+    /*     background: #5a5a5a; */
+    border-radius: 8px;
+    min-width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+main {
+    font-size: 100px;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.section {
+    font-size: 100px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+/* Keyframe Animations */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 円形クリッピングマスクアニメーション */
+.primus {
+    width: 1000px;
+    height: 1000px;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.primus.in-view {
+    opacity: 1;
+    animation: revealCircle 2s ease-out forwards;
+}
+
+@keyframes revealCircle {
+    from {
+        -webkit-clip-path: circle(0% at 50% 50%);
+        clip-path: circle(0% at 50% 50%);
+    }
+
+    to {
+        -webkit-clip-path: circle(120% at 50% 50%);
+        clip-path: circle(120% at 50% 50%);
+    }
+}
+
+/* ========================================
+   3. Header & Footer Styles (from header__footer.css)
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ===== Header ===== */
+/* .site-header background removed to allow JavaScript-controlled background color */
+
+
+.site-header .desktop {
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+}
+
+.logo a {
+    display: inline-block;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.gnav {
+    margin-left: auto;
+}
+
+.gnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 24px;
+}
+
+.gnav a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: #000;
+    border: 0px solid #8a8a8a;
+    padding: 36px 24px;
+    text-align: center;
+
+}
+
+.footer-copy {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+/* ========================================
+   4. Section 1 Layout (from section1.css)
+   ======================================== */
+.section section-mk {
+    background-color: #000;
+    box-sizing: border-box;
+}
+
+/* Portfolio Section Layout */
+.portfolio-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0;
+    /* Remove padding to prevent overflow */
+    align-items: flex-start;
+    width: 100%;
+    /* Force full-width, prevent flex shrinking to content */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-left {
+    flex: 0 0 auto;
+    width: 550px;
+}
+
+.portfolio-right {
+    flex: 1;
+    width: auto;
+}
+
+
+
+/* ========================================
+   6. Main Styles (original style.css)
+   ======================================== */
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --square-size: 428px;
+}
+
+/* Base Elements */
+html,
+body {
+    font-family: Arial, sans-serif;
+    background: #D8D3D1;
+    /* 初期背景色（JavaScriptで動的に変更される） */
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    transition: background-color 1s ease-in-out;
+}
+
+body.bg-changed {
+    background: #4a4a4a;
+}
+
+/* Layout Components */
+main {
+    font-size: 100px;
+    width: 100%;
+    padding: 2rem;
+}
+
+.section {
+    font-size: 96px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.section1 {
+    background-color: #ff0000;
+}
+
+.section2 {
+    background-color: #ff8000;
+}
+
+.section.section-mk {
+    background-color: #000;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   Portfolio Section Lines
+   デザインカンプ準拠
+   =============================== */
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 30px 0;
+    /*     padding-top: 1px;
+    padding-bottom: 1px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.portfolio-left {
+    position: relative;
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+.portfolio-right {
+    flex: 1;
+    max-width: 650px;
+    position: relative;
+    text-align: right;
+    border-left: 1px solid #000;
+    padding-left: 30px;
+}
+
+/* UI Components - Typography */
+.title {
+    font-family: "Anton", sans-serif;
+    font-size: 96px;
+    line-height: 120%;
+    margin-top: 0;
+    margin-bottom: 160px;
+    padding-right: 30px;
+    font-weight: normal;
+}
+
+.subtitle {
+    font-family: "Anton", sans-serif;
+    font-size: 48px;
+    margin: 0;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin-top: 0;
+    width: 100%;
+    font-weight: normal;
+    border-top: 1px solid #000;
+}
+
+.subtitle .fade {
+    display: inline-block;
+}
+
+/* UI Components - Buttons */
+.btn {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
+    border-radius: 999px;
+    box-shadow: none;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+
+}
+
+/* ===============================
+   削除対象（明示）
+   =============================== */
+
+/* 以下は使わないため無効化 */
+.subtitle::before,
+.subtitle::after,
+.btn::before,
+.btn::after,
+.title::after,
+.mv-2::after {
+    display: none !important;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin: 2rem 0;
+}
+
+.line-bottom {
+    padding-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.bottom-row {
+    padding-top: 10px;
+    margin-top: 148px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+
+/* UI Components - Image Containers */
+.mv {
+    width: var(--square-size);
+    height: var(--square-size);
+    position: relative;
+}
+
+.mv-2 {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    margin: 0 auto 2rem 50px;
+    display: block;
+}
+
+/* ロゴエリア上下の線 */
+.mv-3 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-top: 1px solid #000;
+
+}
+
+.group-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll-left 30s linear infinite;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.group-bottom {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+    padding-top: 30px;
+    will-change: transform;
+    /* GPU加速を明示的に有効化 */
+    transform: translate3d(0, 0, 0);
+    /* GPUレイヤーを強制的に作成 */
+}
+
+/* UI Components - Carousel & Cards */
+.carousel-main {
+    border-bottom: 1px solid #000;
+}
+
+.carousel-main,
+.carousel-sub {
+    /*     width: 100%;
+    max-width: 100%;
+    max-height: 100px; */
+    overflow: hidden;
+    /*     position: relative;
+    background: transparent; */
+
+}
+
+
+
+
+
+/* ========================================
+   スライダーコンテナ
+   ======================================== */
+.mv-2 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* 一度に1枚だけ表示 */
+}
+
+#slide {
+    position: relative;
+    /* overflow: hidden; */
+    /* 子要素を表示するために削除 */
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* スライドアイテムの配置 */
+.item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================
+   Slider Buttons (Previous/Next)
+   ======================================== */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff80;
+    border: none;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-btn-prev {
+    left: 10px;
+}
+
+.slider-btn-next {
+    right: 10px;
+}
+
+/* ========================================
+   Slider Indicator (Dots)
+   ======================================== */
+.slider-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.slider-indicator .list {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.slider-indicator .list.is-active {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+.slider-indicator .list:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.35);
+    transform: scale(1.05);
+}
+
+
+
+/* Image slideshow delays - CSS版（コメントアウト：JavaScript版に移行） */
+/*
+.item:nth-child(1) img {
+    animation-delay: 0s;
+}
+
+.item:nth-child(2) img {
+    animation-delay: 5s;
+}
+
+.item:nth-child(3) img {
+    animation-delay: 10s;
+}
+
+.item:nth-child(4) img {
+    animation-delay: 15s;
+}
+
+.item:nth-child(5) img {
+    animation-delay: 20s;
+}
+
+.item:nth-child(6) img {
+    animation-delay: 25s;
+}
+
+.item:nth-child(7) img {
+    animation-delay: 30s;
+}
+
+.item:nth-child(8) img {
+    animation-delay: 35s;
+}
+
+.item:nth-child(9) img {
+    animation-delay: 40s;
+}
+
+.item:nth-child(10) img {
+    animation-delay: 45s;
+}
+
+.item:nth-child(11) img {
+    animation-delay: 50s;
+}
+.item:nth-child(12) img {
+    animation-delay: 55s;
+}
+*/
+
+
+.card {
+    border-radius: 8px;
+    min-width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    padding: 10px 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 80px;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* UI Components - Special Elements */
+.primus {
+    width: 1000px;
+    height: 1000px;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.primus.in-view {
+    opacity: 1;
+    animation: revealCircle 2s ease-out forwards;
+}
+
+/* ========================================
+   5. Fade
+   ======================================== */
+/* .fade の表示制御は base.css の transition（.fade / .fade.is-show）で行う */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease, transform 2.5s ease;
+}
+
+.fade.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+/* Animations */
+/* CSS版のキーフレーム（コメントアウト：JavaScript版に移行） */
+/*
+@keyframes img-change {
+    0% {
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    5.8% {
+        opacity: 1;
+    }
+
+    7% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+*/
+
+@keyframes scroll-left {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes revealCircle {
+    from {
+        -webkit-clip-path: circle(0% at 50% 50%);
+        clip-path: circle(0% at 50% 50%);
+    }
+
+    to {
+        -webkit-clip-path: circle(120% at 50% 50%);
+        clip-path: circle(120% at 50% 50%);
+    }
+}
+
+/* ========================================
+   7. Media Queries - Mobile (785px以下)
+   ======================================== */
+
+/* ===== Mobile Header & Footer (\u003c=767px) ===== */
+@media (max-width: 767px) {
+
+    /* 共犯③：.desktop の max-width を解除（必要に応じて） */
+    /* PC版の max-width: 1200px を解除して全幅表示にする */
+    .desktop {
+        max-width: 100% !important;
+        /* 1200px の制約を解除 */
+        margin: 0 !important;
+        /* margin: 0 auto を解除して全幅に */
+        padding: 20px;
+        border-bottom: 1px solid #8a8a8a;
+    }
+
+    /* Header（普通のスマホ版） */
+    .site-header .desktop {
+        height: 56px;
+        justify-content: space-between;
+        /* ロゴ左・ナビ右 */
+    }
+
+    .logo img {
+        height: 20px;
+    }
+
+    .gnav ul {
+        gap: 3px;
+    }
+
+    .gnav a {
+        font-size: 8px;
+        padding: 6px 4px;
+    }
+
+    /* Footer（スマホ：padding 縦36 横24） */
+    .site-footer {
+        padding: 36px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-copy {
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.6;
+        color: #f2f2f2;
+    }
+}
+
+@media (max-width: 785px) {
+
+    /* CSS Variables Override */
+    :root {
+        --square-size: 100vw;
+    }
+
+    /* Base Carousel Responsive */
+    .card {
+        min-width: 100px;
+        height: 50px;
+        padding: 0.75rem 1rem;
+    }
+
+    .group {
+        gap: 0.75rem;
+        border-bottom: 1px solid #000;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    body {
+        gap: 1rem;
+    }
+
+    /* Section 1 Mobile Layout */
+    /* 主犯：.portfolio-inner の max-width + padding を解除 */
+    /* max-width: 1200px を解除して全幅表示にする */
+    .portfolio-inner {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100% !important;
+        /* 1200px の制約を完全に解除 */
+        margin: 0 !important;
+        /* margin: 0 auto を解除して全幅に */
+        padding: 1rem;
+        gap: 0;
+    }
+
+    .portfolio-left,
+    .portfolio-right {
+        width: 100%;
+    }
+
+
+    /* Portfolio Section Mobile Layout */
+    .portfolio-section {
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        overflow: hidden;
+        padding: 0 30px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        gap: 0;
+        position: relative;
+        border-top: 1px solid #000;
+        border-bottom: none;
+    }
+
+    .portfolio-left,
+    .portfolio-right {
+        width: 100%;
+        border-right: none;
+        max-width: 100%;
+        display: contents;
+    }
+
+    /* Mobile Element Order */
+    .bottom-line {
+        order: 1;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .portfolio-right {
+        display: contents;
+    }
+
+    .mv-2 {
+        order: 2;
+        position: relative;
+        margin: 0 auto 30px auto;
+        padding-bottom: 30px;
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        overflow: hidden;
+        /* スライダーは1枚だけ見せる */
+        display: block;
+    }
+
+
+
+    .bottom-row {
+        order: 3;
+        position: relative;
+        margin-top: 30px;
+    }
+
+    /* モバイル版：subtitleのborder-topを削除 */
+    .subtitle {
+        border-top: none;
+    }
+
+
+    .mv-3 {
+        order: 4;
+        padding-bottom: 20px;
+        padding: 0;
+        width: 100% !important;
+        max-width: 100%;
+        padding-top: 20px;
+        display: block;
+        border-top: none;
+    }
+
+    /* Typography Mobile Sizes */
+    .title {
+        font-size: 48px;
+        line-height: 120%;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .subtitle {
+        font-size: 48px;
+        line-height: 1.2;
+        text-align: left;
+        padding-top: 0;
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 0.4rem 1rem;
+        text-align: left;
+        position: relative;
+        /*      margin-bottom: 30px; */
+    }
+
+
+    /* Image Containers Mobile */
+    /* NOTE: `.item` は画像スライダーでも使うため、ここではスライダーを壊さない指定にする */
+    .mv-2 #slide {
+        height: 100%;
+        display: flex;
+    }
+
+    .mv-2 #slide .item {
+        position: relative;
+        inset: auto;
+        flex: 0 0 100%;
+        min-width: 100%;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .mv-2 #slide .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: none;
+        opacity: 1;
+    }
+
+    /* スライダーUIをスマホ向けに小さく */
+    .slider-btn {
+        font-size: 2.2rem;
+        width: 42px;
+        height: 42px;
+    }
+
+    .slider-indicator {
+        bottom: 12px;
+        gap: 8px;
+    }
+
+    .slider-indicator .list {
+        width: 10px;
+        height: 10px;
+    }
+
+
+
+    .carousel-main,
+    .carousel-sub {
+        width: auto;
+        height: auto !important;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+        border-top: none;
+    }
+
+    /* Hide all carousel lines on mobile */
+    .carousel-main {
+        border-bottom: none;
+        border-top: 1px solid #000;
+    }
+
+    .carousel-sub {
+        margin-bottom: 0;
+        border-bottom: 1px solid #000;
+        padding-bottom: 15px;
+    }
+
+    .card {
+        min-width: 120px;
+        width: auto;
+        height: 60px;
+        padding: 12px;
+        flex-shrink: 0;
+    }
+
+    .card img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .group-top,
+    .group-bottom {
+        border: none;
+        padding-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .group-bottom {
+        border-top: 1px solid #000;
+        margin-bottom: 0;
+    }
+}
+
+/* ========================================
+   8. Media Query - Extra Small (375px以下)
+   785pxレスポンシブの上書き専用
+   ======================================== */
